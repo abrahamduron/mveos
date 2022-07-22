@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<image schemaversion="6.8" name="MaverickEnvironmetWeb-OS">
+    <description type="system">
+        <author>G1 SO2 IS UNAH</author>
+        <contact>abraham.duron@unah.hn</contact>
+        <specification>
+            MaverickOS es una distro personalizada para desarollo web con tools de pentesting y uso de Docke basada en openSUSE Leap 15.4 Appliance.
+        </specification>
+    </description>
+    <profiles>
+        <profile name="DracutLive" description="Simple Live image" import="true"/>
+        <profile name="Live" description="Live image"/>
+        <profile name="Virtual" description="Simple Disk image"/>
+        <profile name="Disk" description="Expandable Disk image"/>
+    </profiles>
+    <preferences>
+        <version>1.1.0</version>
+        <packagemanager>zypper</packagemanager>
+        <locale>es_ES</locale>
+        <keytable>es</keytable>
+        <timezone>America/Tegucigalpa</timezone>
+        <rpm-excludedocs>false</rpm-excludedocs>
+        <rpm-check-signatures>false</rpm-check-signatures>
+        <bootsplash-theme>bgrt</bootsplash-theme>
+        <bootloader-theme>openSUSE</bootloader-theme>
+    </preferences>
+    <preferences profiles="DracutLive">
+        <type image="iso" primary="true" flags="dmsquash" hybrid="true" firmware="efi"  hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="false"/>
+    </preferences>
+    <preferences profiles="Live">
+        <type image="iso" primary="true" flags="overlay" hybrid="true" firmware="efi" kernelcmdline="splash" hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="true"/>
+    </preferences>
+    <preferences profiles="Virtual">
+        <type image="vmx" filesystem="xfs" bootloader="grub2" kernelcmdline="splash" firmware="uefi" bootpartition="true" bootfilesystem="ext4">
+            <machine memory="1024" guestOS="suse" HWversion="4">
+                <vmdisk id="0" controller="ide"/>
+                <vmnic driver="e1000" interface="0" mode="bridged"/>
+            </machine>
+        </type>
+    </preferences>
+    <preferences profiles="Disk">
+        <type image="oem" filesystem="ext4" initrd_system="dracut" installiso="true" bootloader="grub2" kernelcmdline="splash" firmware="efi">
+            <oemconfig>
+                <oem-systemsize>8192</oem-systemsize>
+                <oem-swap>true</oem-swap>
+                <oem-device-filter>/dev/ram</oem-device-filter>
+                <oem-multipath-scan>false</oem-multipath-scan>
+            </oemconfig>
+        </type>
+    </preferences>
+    <users>
+        <user password="$1$escondid$RKwGhktRzEGovcUxN4yLe0" home="/root" name="root" groups="root"/>
+    </users>
+    <repository type="rpm-md" alias="kiwi" priority="1">
+        <source path="obs://Virtualization:Appliances:Builder/openSUSE_Leap_15.4"/>
+    </repository>
+    <repository type="rpm-md" alias="Leap_15_4" imageinclude="true">
+        <source path="obs://openSUSE:Leap:15.4/standard"/>
+    </repository>
+
+    <repository type="rpm-md" alias="repo-update" imageinclude="true" priority="1">
+        <source path="https://download.opensuse.org/update/leap/15.4/oss"/>
+    </repository>
+    <repository type="rpm-md" alias="repo-update-non-oss" imageinclude="true" priority="2">
+        <source path="https://download.opensuse.org/update/leap/15.4/non-oss"/>
+    </repository>
+    <repository type="rpm-md" alias="repo-oss" imageinclude="true" priority="3">
+        <source path="https://download.opensuse.org/distribution/leap/15.4/repo/oss"/>
+    </repository>
+    <repository type="rpm-md" alias="repo-non-oss" imageinclude="true" priority="4">
+        <source path="https://download.opensuse.org/distribution/leap/15.4/repo/non-oss"/>
+    </repository>
+    <repository type="rpm-md" alias="download.nvidia.com-leap" imageinclude="true" priority="5">
+        <source path="https://download.nvidia.com/opensuse/leap/15.4/"/>
+    </repository>
+    <repository type="rpm-md" alias="snappy" imageinclude="true" priority="6">
+        <source path="https://download.opensuse.org/repositories/system:/snappy/openSUSE_Leap_15.4"/>
+    </repository>
+
+    <packages type="image" patternType="plusRecommended">
+        <package name="checkmedia"/>
+        <package name="cryptsetup"/>
+        <package name="patterns-openSUSE-base"/>
+        <package name="plymouth-theme-bgrt"/>
+        <package name="plymouth-dracut"/>
+        <package name="grub2-branding-openSUSE"/>
+        <package name="ifplugd"/>
+        <package name="iputils"/>
+        <package name="vim"/>
+        <package name="grub2"/>
+        <package name="grub2-x86_64-efi" arch="x86_64"/>
+        <package name="grub2-i386-pc"/>
+        <package name="syslinux"/>
+        <package name="lvm2"/>
+        <package name="plymouth"/>
+        <package name="fontconfig"/>
+        <package name="fonts-config"/>
+        <package name="tar"/>
+        <package name="parted"/>
+        <package name="openssh"/>
+        <package name="iproute2"/>
+        <package name="less"/>
+        <package name="bash-completion"/>
+        <package name="dhcp-client"/>
+        <package name="which"/>
+        <package name="shim"/>
+        <package name="kernel-default"/>
+        <package name="timezone"/>
+        <package name="xz" />
+        <package name="wicked"/>
+        <package name="ntp"/>
+        <package name="man-pages"/>
+        <package name="man-pages-posix"/>
+        <package name="x11vnc"/>
+        <package name="krfb"/>
+        <package name="xinetd"/>
+        <package name="bzip2"/>
+        <package name="unrar"/>
+        <package name="yast2-alternatives"/>
+        <package name="yast2-firstboot"/>
+        <package name="yast2-trans-es"/>
+        <package name="pidgin"/>
+        <package name="gajim"/>
+        <package name="kwrite"/>
+        <package name="firewalld"/>
+        <package name="firewall-config"/>
+        <package name="telnet"/>
+        <package name="vncmanager"/>
+        <package name="OpenPrintingPPDs"/>
+        <package name="hplip"/>
+        <package name="manufacturer-PPDs"/>
+        <package name="epson-inkjet-printer-escpr"/>
+        <package name="gutenprint"/>
+        <package name="myspell-es"/>
+        <package name="myspell-es_PY"/>
+        <package name="aspell-es"/>
+        <package name="ispell-spanish"/>
+        <package name="nmap"/>
+        <package name="rsync"/>
+        <package name="tcpdump"/>
+        <package name="libreoffice-writer-extensions"/>
+        <package name="libreoffice-calc-extensions"/>
+        <package name="libreoffice-l10n-es"/>
+        <package name="gcc"/>
+        <package name="gcc-c++"/>
+        <package name="cups-backends"/>
+        <package name="net-tools-deprecated"/>
+        <package name="perl-Net-IP"/>
+        <package name="perl-Net-IPv4Addr"/>
+        <package name="snapd"/>
+        <package name="virtualbox-kmp-default"/>
+        <package name="virtualbox-guest-tools"/>
+        <package name="virtualbox-guest-x11"/>
+        <package name="sane-backends"/>
+        <package name="xf86-video-amdgpu"/>
+        <package name="xf86-video-ati"/>
+        <package name="xf86-video-nouveau"/>
+        <package name="xf86-video-nv"/>
+        <package name="xf86-video-r128"/>
+        <package name="xf86-video-intel"/>
+        <namedCollection name="apparmor"/>
+        <namedCollection name="base"/>
+        <namedCollection name="basesystem"/>
+        <namedCollection name="enhanced_base"/>
+        <namedCollection name="fonts"/>
+        <namedCollection name="fonts_opt"/>
+        <namedCollection name="imaging"/>
+        <namedCollection name="kde"/>
+        <namedCollection name="kde_imaging"/>
+        <namedCollection name="kde_internet"/>
+        <namedCollection name="kde_multimedia"/>
+        <namedCollection name="kde_office"/>
+        <namedCollection name="kde_plasma"/>
+        <namedCollection name="kde_utilities"/>
+        <namedCollection name="kde_utilities_opt"/>
+        <namedCollection name="kde_yast"/>
+        <namedCollection name="laptop"/>
+        <namedCollection name="minimal_base"/>
+        <namedCollection name="multimedia"/>
+        <namedCollection name="office"/>
+        <namedCollection name="sw_management"/>
+        <namedCollection name="x11"/>
+        <namedCollection name="x11_yast"/>
+        <namedCollection name="yast2_basis"/>
+    </packages>
+    <packages profiles="DracutLive" type="iso">
+        <package name="bind-utils"/>
+        <package name="e2fsprogs"/>
+        <package name="btrfsprogs"/>
+        <package name="cifs-utils"/>
+        <package name="curl"/>
+        <package name="dmraid"/>
+        <package name="fcoe-utils"/>
+        <package name="lldpd"/>
+        <package name="mdadm"/>
+        <package name="nbd"/>
+        <package name="open-iscsi"/>
+        <package name="vlan"/>
+    </packages>
+    <packages type="iso">
+        <package name="gfxboot-branding-openSUSE"/>
+        <package name="dracut-kiwi-live"/>
+    </packages>
+    <packages type="oem">
+        <package name="gfxboot-branding-openSUSE"/>
+        <package name="dracut-kiwi-oem-repart"/>
+        <package name="dracut-kiwi-oem-dump"/>
+    </packages>
+    <packages type="bootstrap">
+        <package name="udev"/>
+        <package name="filesystem"/>
+        <package name="glibc-locale"/>
+        <package name="cracklib-dict-full"/>
+        <package name="ca-certificates-cacert"/>
+        <package name="ca-certificates"/>
+        <package name="ca-certificates-mozilla"/>
+        <package name="openSUSE-release"/>
+    </packages>
+    <packages profiles="DracutLive" type="bootstrap">
+        <package name="module-init-tools"/>
+        <package name="syslinux"/>
+    </packages>
+</image>
