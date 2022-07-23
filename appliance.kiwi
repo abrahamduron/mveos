@@ -2,7 +2,7 @@
 
 <image schemaversion="6.8" name="MaverickEnvironmetWeb-OS">
     <description type="system">
-        <author>G1 SO2 IS UNAH</author>
+        <author>G1 SO2 IS UNAH-Abraham Duron 20131001422 L...</author>
         <contact>abraham.duron@unah.hn</contact>
         <specification>
             MaverickOS es una distro personalizada para desarollo web con tools de pentesting y uso de Docke basada en openSUSE Leap 15.4 Appliance.
