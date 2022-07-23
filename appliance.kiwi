@@ -2,7 +2,7 @@
 
 <image schemaversion="6.8" name="MaverickEnvironmetWeb-OS">
     <description type="system">
-        <author> CURTOMIZER - G1-SO2-IS-UNAH Abraham Duron 20131001422 - Luis...</author>
+        <author> CURTOMIZER - G1-SO2-IS-UNAH - Abraham Duron 20131001422 - Luis Lainez 20191002134</author>
         <contact>abraham.duron@unah.hn</contact>
         <specification>
             MaverickOS es una distro personalizada para desarollo web con tools de pentesting y uso de Docke basada en openSUSE Leap 15.4 Appliance.
