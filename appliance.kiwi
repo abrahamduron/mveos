@@ -184,6 +184,27 @@
         <namedCollection name="x11_yast"/>
         <namedCollection name="yast2_basis"/>
     </packages>
+    
+    </packages>
+    <packages type="delete">
+        <package name="discover"/>
+        <package name="discover-lang"/>
+        <package name="tigervnc"/>
+        <package name="kpat"/>
+        <package name="kpat-lang"/>
+        <package name="kdegames-carddecks-default"/>
+        <package name="kmahjongg"/>
+        <package name="kmahjongg-lang"/>
+        <package name="kmines"/>
+        <package name="kmines-lang"/>
+        <package name="kreversi"/>
+        <package name="kreversi-lang"/>
+        <package name="ksudoku"/>
+        <package name="ksudoku-lang"/>
+        <namedCollection name="patterns-games-games"/>
+        <namedCollection name="patterns-kde-kde_games"/>
+    </packages>
+    
     <packages profiles="DracutLive" type="iso">
         <package name="bind-utils"/>
         <package name="e2fsprogs"/>
