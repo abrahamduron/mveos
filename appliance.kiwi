@@ -50,7 +50,7 @@
         </type>
     </preferences>
     <users>
-        <user password="$1$escondid$RKwGhktRzEGovcUxN4yLe0" home="/root" name="root" groups="root"/>
+        <user password="$1$grupo1so$9dt/i2mhuaHlSv/Mz20QH1" home="/root" name="root" groups="root"/>
     </users>
     <repository type="rpm-md" alias="kiwi" priority="1">
         <source path="obs://Virtualization:Appliances:Builder/openSUSE_Leap_15.4"/>
@@ -78,6 +78,18 @@
         <source path="https://download.opensuse.org/repositories/system:/snappy/openSUSE_Leap_15.4"/>
     </repository>
 
+    <repository type="rpm-md" alias="MS-code" imageinclude="true">
+        <source path="https://packages.microsoft.com/yumrepos/vscode"/>
+    </repository>
+    
+    <repository type="rpm-md" alias="google" imageinclude="true">
+        <source path="http://dl.google.com/linux/chrome/rpm/stable/x86_64"/>
+    </repository>
+    
+    <repository type="rpm-md" alias="MS-teams" imageinclude="true">
+        <source path="https://packages.microsoft.com/yumrepos/ms-teams"/>
+    </repository>
+    
     <packages type="image" patternType="plusRecommended">
         <package name="checkmedia"/>
         <package name="cryptsetup"/>
@@ -159,6 +171,10 @@
         <package name="xf86-video-nv"/>
         <package name="xf86-video-r128"/>
         <package name="xf86-video-intel"/>
+        <package name="code"/>
+        <package name="google-chrome-stable"/>
+        <package name="docker"/>  
+        <package name="teams"/> 
         <namedCollection name="apparmor"/>
         <namedCollection name="base"/>
         <namedCollection name="basesystem"/>
