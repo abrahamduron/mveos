@@ -201,7 +201,6 @@
         <namedCollection name="yast2_basis"/>
     </packages>
     
-    </packages>
     <packages type="delete">
         <package name="discover"/>
         <package name="discover-lang"/>
