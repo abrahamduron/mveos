@@ -26,10 +26,10 @@
         <bootloader-theme>openSUSE</bootloader-theme>
     </preferences>
     <preferences profiles="DracutLive">
-        <type image="iso" primary="true" flags="overlay" hybrid="true" firmware="efi"  hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="false"/>
+        <type image="iso" primary="true" flags="overlay" firmware="efi"  hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="false"/>
     </preferences>
     <preferences profiles="Live">
-        <type image="iso" primary="true" flags="overlay" hybrid="true" firmware="efi" kernelcmdline="splash" hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="true"/>
+        <type image="iso" primary="true" flags="overlay" firmware="efi" kernelcmdline="splash" hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="true"/>
     </preferences>
     <preferences profiles="Virtual">
         <type image="vmx" filesystem="xfs" bootloader="grub2" kernelcmdline="splash" firmware="uefi" bootpartition="true" bootfilesystem="ext4">
@@ -78,7 +78,7 @@
         <source path="https://download.opensuse.org/repositories/system:/snappy/openSUSE_Leap_15.4"/>
     </repository>
 
-    <repository type="rpm-md" alias="MS-code" imageinclude="true">
+    <repository type="rpm-md" alias="MS-code" imageinclude="true" gpgcheck="1" gpgkey="https://packages.microsoft.com/keys/microsoft.asc">
         <source path="https://packages.microsoft.com/yumrepos/vscode"/>
     </repository>
     
