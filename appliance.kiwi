@@ -94,13 +94,13 @@ gpgkey=https://packages.microsoft.com/keys/microsoft.asc]">
         <source path="https://packages.microsoft.com/yumrepos/vscode"/>
     </repository>
     
-    <repository type="rpm-md" alias="google" imageinclude="true">
+    <!--repository type="rpm-md" alias="google" imageinclude="true">
         <source path="http://dl.google.com/linux/chrome/rpm/stable/x86_64"/>
     </repository>
     
     <repository type="rpm-md" alias="MS-teams" imageinclude="true">
         <source path="https://packages.microsoft.com/yumrepos/ms-teams"/>
-    </repository>
+    </repository-->
     
     <packages type="image" patternType="plusRecommended">
         <package name="checkmedia"/>
