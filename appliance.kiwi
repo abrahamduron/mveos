@@ -26,7 +26,7 @@
         <bootloader-theme>openSUSE</bootloader-theme>
     </preferences>
     <preferences profiles="DracutLive">
-        <type image="iso" primary="true" flags="dmsquash" hybrid="true" firmware="efi"  hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="false"/>
+        <type image="iso" primary="true" flags="overlay" hybrid="true" firmware="efi"  hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="false"/>
     </preferences>
     <preferences profiles="Live">
         <type image="iso" primary="true" flags="overlay" hybrid="true" firmware="efi" kernelcmdline="splash" hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="true"/>
