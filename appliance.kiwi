@@ -9,7 +9,7 @@
         </specification>
     </description>
     <profiles>
-        <profile name="DracutLive" description="Simple Live image" import="true"/>
+        <profile name="DracutLive" description="DracutLive image" import="true"/>
         <profile name="Live" description="Live image"/>
         <profile name="Virtual" description="Simple Disk image"/>
         <profile name="Disk" description="Expandable Disk image"/>
@@ -26,27 +26,38 @@
         <bootloader-theme>openSUSE</bootloader-theme>
     </preferences>
     <preferences profiles="DracutLive">
-        <type image="iso" primary="true" flags="overlay" firmware="efi"  hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="false"/>
+      <type image="oem" filesystem="ext3" kernelcmdline="console=ttyS0" firmware="efi" format="vmdk" overlayroot="true">
+            <oemconfig>
+                <oem-resize>false</oem-resize>
+            </oemconfig>
+            <bootloader name="grub2" console="serial" timeout="10"/>
+            <size unit="G">4</size>
+        </type>
     </preferences>
     <preferences profiles="Live">
-        <type image="iso" primary="true" flags="overlay" firmware="efi" kernelcmdline="splash" hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="true"/>
+        <type image="iso" flags="overlay" firmware="efi" kernelcmdline="console=ttyS0" hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="true">
+            <bootloader name="grub2" console="serial" timeout="10"/>
+        </type>
     </preferences>
     <preferences profiles="Virtual">
-        <type image="vmx" filesystem="xfs" bootloader="grub2" kernelcmdline="splash" firmware="uefi" bootpartition="true" bootfilesystem="ext4">
-            <machine memory="6144" guestOS="suse" HWversion="4">
-                <vmdisk id="0" controller="ide"/>
-                <vmnic driver="e1000" interface="0" mode="bridged"/>
-            </machine>
+        <type image="oem" filesystem="ext3" kernelcmdline="console=ttyS0" firmware="uefi" format="vmdk">
+            <oemconfig>
+                <oem-resize>false</oem-resize>
+            </oemconfig>
+            <bootloader name="grub2" console="serial" timeout="10"/>
         </type>
     </preferences>
     <preferences profiles="Disk">
-        <type image="oem" filesystem="ext4" initrd_system="dracut" installiso="true" bootloader="grub2" kernelcmdline="splash" firmware="efi">
+       <type image="oem" filesystem="btrfs" kernelcmdline="console=ttyS0" firmware="efi" installiso="true" bootpartition="false" btrfs_root_is_snapshot="true" installboot="install">
+            <bootloader name="grub2" console="serial" timeout="10"/>
             <oemconfig>
-                <oem-systemsize>8192</oem-systemsize>
-                <oem-swap>true</oem-swap>
-                <oem-device-filter>/dev/ram</oem-device-filter>
+                <oem-unattended>true</oem-unattended>
+                <oem-swapsize>1024</oem-swapsize>
                 <oem-multipath-scan>false</oem-multipath-scan>
             </oemconfig>
+            <systemdisk>
+                <volume name="home"/>
+            </systemdisk>
         </type>
     </preferences>
     <users>
@@ -78,9 +89,9 @@
         <source path="https://download.opensuse.org/repositories/system:/snappy/openSUSE_Leap_15.4"/>
     </repository>
 
-    <repository type="rpm-md" alias="MS-code" imageinclude="true" package_gpgcheck="1" repository_gpgcheck="https://packages.microsoft.com/keys/microsoft.asc" >
+<!--     <repository type="rpm-md" alias="MS-code" imageinclude="true" package_gpgcheck="1" repository_gpgcheck="https://packages.microsoft.com/keys/microsoft.asc" >
         <source path="https://packages.microsoft.com/yumrepos/vscode"/>
-    </repository>
+    </repository> -->
     
     <!--repository type="rpm-md" alias="google" imageinclude="true">
         <source path="http://dl.google.com/linux/chrome/rpm/stable/x86_64"/>
@@ -171,7 +182,7 @@
         <package name="xf86-video-nv"/>
         <package name="xf86-video-r128"/>
         <package name="xf86-video-intel"/>
-        <package name="code"/>
+<!--         <package name="code"/> -->
         <!--package name="google-chrome-stable"/>
         <package name="docker"/>  
         <package name="teams"/--> 
