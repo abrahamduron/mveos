@@ -78,19 +78,7 @@
         <source path="https://download.opensuse.org/repositories/system:/snappy/openSUSE_Leap_15.4"/>
     </repository>
 
-    <repository type="rpm-md" alias="MS-code" imageinclude="true" package_gpgcheck="[
-name=Visual Studio Code
-baseurl=https://packages.microsoft.com/yumrepos/vscode
-enabled=1
-type=rpm-md
-gpgcheck=1
-gpgkey=https://packages.microsoft.com/keys/microsoft.asc]" repository_gpgcheck="[
-name=Visual Studio Code
-baseurl=https://packages.microsoft.com/yumrepos/vscode
-enabled=1
-type=rpm-md
-gpgcheck=1
-gpgkey=https://packages.microsoft.com/keys/microsoft.asc]">
+    <repository type="rpm-md" alias="MS-code" imageinclude="true" gpgcheck="1" gpgkey="https://packages.microsoft.com/keys/microsoft.asc" >
         <source path="https://packages.microsoft.com/yumrepos/vscode"/>
     </repository>
     
