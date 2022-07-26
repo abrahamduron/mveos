@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<image schemaversion="6.8" name="MaverickEnvironmetWeb-OS">
+<image schemaversion="6.8" name="G1SO2UNAH-MaverickEnvironmetWeb-OS">
     <description type="system">
-        <author> CURTOMIZER - G1-SO2-IS-UNAH - Abraham Duron 20131001422 - Luis Lainez 20191002134 - Alex Espinoza 20181006353</author>
+        <author> CUSTOMIZER - G1-SO2-IS-UNAH - Abraham Duron 20131001422 - Luis Lainez 20191002134 - Alex Espinoza 20181006353</author>
         <contact>abraham.duron@unah.hn</contact>
         <specification>
             MaverickOS es una distro personalizada para desarollo web con tools de pentesting y uso de Docke basada en openSUSE Leap 15.4 Appliance.
@@ -15,13 +15,13 @@
         <profile name="Disk" description="Expandable Disk image"/>
     </profiles>
     <preferences>
-        <version>1.2.0</version>
+        <version>1.3.0</version>
         <packagemanager>zypper</packagemanager>
         <locale>es_ES</locale>
         <keytable>es</keytable>
         <timezone>America/Tegucigalpa</timezone>
         <rpm-excludedocs>false</rpm-excludedocs>
-        <rpm-check-signatures>false</rpm-check-signatures>
+        <rpm-check-signatures>true</rpm-check-signatures>
         <bootsplash-theme>bgrt</bootsplash-theme>
         <bootloader-theme>openSUSE</bootloader-theme>
     </preferences>
@@ -29,10 +29,10 @@
         <type image="iso" primary="true" flags="overlay" firmware="efi"  hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="false"/>
     </preferences>
     <preferences profiles="Live">
-        <type image="iso" primary="true" flags="overlay" firmware="efi" kernelcmdline="splash" hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="true"/>
+        <type image="iso" primary="true" flags="overlay" hybrid="true" firmware="efi" kernelcmdline="splash" hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="true"/>
     </preferences>
     <preferences profiles="Virtual">
-        <type image="vmx" filesystem="xfs" bootloader="grub2" kernelcmdline="splash" firmware="uefi" bootpartition="true" bootfilesystem="ext4">
+        <type image="vmx" filesystem="xfs" bootloader="grub2" kernelcmdline="splash" firmware="uefi" bootpartition="true" bootfilesystem="ext4" format="vmdk">
             <machine memory="6144" guestOS="suse" HWversion="4">
                 <vmdisk id="0" controller="ide"/>
                 <vmnic driver="e1000" interface="0" mode="bridged"/>
@@ -40,7 +40,7 @@
         </type>
     </preferences>
     <preferences profiles="Disk">
-        <type image="oem" filesystem="ext4" initrd_system="dracut" installiso="true" bootloader="grub2" kernelcmdline="splash" firmware="efi">
+        <type image="oem" filesystem="ext4" firmware="efi" kernelcmdline="rd.kiwi.oem.maxdisk=1100G" installboot="install" initrd_system="dracut" installiso="true" bootloader="grub2" format="vmdk">
             <oemconfig>
                 <oem-systemsize>8192</oem-systemsize>
                 <oem-swap>true</oem-swap>
@@ -49,9 +49,21 @@
             </oemconfig>
         </type>
     </preferences>
+
+
     <users>
-        <user password="$1$grupo1so$9dt/i2mhuaHlSv/Mz20QH1" home="/root" name="root" groups="root"/>
+        <user
+            password="MaverickOS"
+            home="/home/me" name="me"
+            groups="users" pwdformat="plain"
+        />
+        <user
+            password="$1$grupo1so$9dt/i2mhuaHlSv/Mz20QH1"
+            home="/root" name="root" groups="root"
+        />
     </users>
+
+
     <repository type="rpm-md" alias="kiwi" priority="1">
         <source path="obs://Virtualization:Appliances:Builder/openSUSE_Leap_15.4"/>
     </repository>
@@ -59,36 +71,24 @@
         <source path="obs://openSUSE:Leap:15.4/standard"/>
     </repository>
 
-    <repository type="rpm-md" alias="repo-update" imageinclude="true" priority="1">
+    <repository type="rpm-md" alias="repo-update" imageinclude="true" priority="2">
         <source path="https://download.opensuse.org/update/leap/15.4/oss"/>
     </repository>
-    <repository type="rpm-md" alias="repo-update-non-oss" imageinclude="true" priority="2">
+    <repository type="rpm-md" alias="repo-update-non-oss" imageinclude="true" priority="3">
         <source path="https://download.opensuse.org/update/leap/15.4/non-oss"/>
     </repository>
-    <repository type="rpm-md" alias="repo-oss" imageinclude="true" priority="3">
+    <repository type="rpm-md" alias="repo-oss" imageinclude="true" priority="4">
         <source path="https://download.opensuse.org/distribution/leap/15.4/repo/oss"/>
     </repository>
-    <repository type="rpm-md" alias="repo-non-oss" imageinclude="true" priority="4">
+    <repository type="rpm-md" alias="repo-non-oss" imageinclude="true" priority="5">
         <source path="https://download.opensuse.org/distribution/leap/15.4/repo/non-oss"/>
     </repository>
-    <repository type="rpm-md" alias="download.nvidia.com-leap" imageinclude="true" priority="5">
-        <source path="https://download.nvidia.com/opensuse/leap/15.4/"/>
+    <repository type="rpm-md" alias="download.nvidia.com-leap" imageinclude="true" priority="6">
+        <source path="https://download.nvidia.com/opensuse/leap/15.4"/>
     </repository>
-    <repository type="rpm-md" alias="snappy" imageinclude="true" priority="6">
+    <repository type="rpm-md" alias="snappy" imageinclude="true" priority="7">
         <source path="https://download.opensuse.org/repositories/system:/snappy/openSUSE_Leap_15.4"/>
     </repository>
-
-    <repository type="rpm-md" alias="MS-code" imageinclude="true" package_gpgcheck="1" repository_gpgcheck="https://packages.microsoft.com/keys/microsoft.asc" >
-        <source path="https://packages.microsoft.com/yumrepos/vscode"/>
-    </repository>
-    
-    <!--repository type="rpm-md" alias="google" imageinclude="true">
-        <source path="http://dl.google.com/linux/chrome/rpm/stable/x86_64"/>
-    </repository>
-    
-    <repository type="rpm-md" alias="MS-teams" imageinclude="true">
-        <source path="https://packages.microsoft.com/yumrepos/ms-teams"/>
-    </repository-->
     
     <packages type="image" patternType="plusRecommended">
         <package name="checkmedia"/>
@@ -171,10 +171,7 @@
         <package name="xf86-video-nv"/>
         <package name="xf86-video-r128"/>
         <package name="xf86-video-intel"/>
-        <package name="code"/>
-        <!--package name="google-chrome-stable"/>
-        <package name="docker"/>  
-        <package name="teams"/--> 
+        <package name="docker"/>
         <namedCollection name="apparmor"/>
         <namedCollection name="base"/>
         <namedCollection name="basesystem"/>

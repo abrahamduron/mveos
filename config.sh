@@ -42,3 +42,4 @@ suseInsertService sshd
 baseSetRunlevel 5
 
 
+
