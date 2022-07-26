@@ -8,9 +8,6 @@
             MaverickOS es una distro personalizada para desarollo web con tools de pentesting y uso de Docke basada en openSUSE Leap 15.4 Appliance.
         </specification>
     </description>
-    <profiles>
-        <profile name="OverlayRoot" description="Overlayroot Disk image"/>
-    </profiles>
     <preferences>
         <version>1.2.0</version>
         <packagemanager>zypper</packagemanager>
@@ -21,9 +18,7 @@
         <rpm-check-signatures>false</rpm-check-signatures>
         <bootsplash-theme>bgrt</bootsplash-theme>
         <bootloader-theme>openSUSE</bootloader-theme>
-    </preferences>
-    <preferences profiles="OverlayRoot">
-        <type image="oem" filesystem="ext3" kernelcmdline="console=ttyS0" firmware="efi" format="vmdk" overlayroot="true">
+           <type image="oem" filesystem="ext3" kernelcmdline="console=ttyS0" firmware="efi" format="vmdk" overlayroot="true">
             <oemconfig>
                 <oem-resize>false</oem-resize>
             </oemconfig>
@@ -197,7 +192,7 @@
         <namedCollection name="patterns-kde-kde_games"/>
     </packages>
     
-    <packages profiles="OverlayRoot" type="image">
+    <packages type="image">
         <package name="patterns-base-minimal_base"/>
         <package name="bind-utils"/>
         <package name="systemd"/>
