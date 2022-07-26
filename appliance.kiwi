@@ -234,4 +234,13 @@
         <package name="ca-certificates-mozilla"/>
         <package name="openSUSE-release"/>
     </packages>
+    <packages type="iso">
+        <package name="gfxboot-branding-openSUSE"/>
+        <package name="dracut-kiwi-live"/>
+    </packages>
+    <packages type="oem">
+        <package name="gfxboot-branding-openSUSE"/>
+        <package name="dracut-kiwi-oem-repart"/>
+        <package name="dracut-kiwi-oem-dump"/>
+    </packages>
 </image>
