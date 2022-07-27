@@ -1,0 +1,5 @@
+kiwi-ng system build --description ./mveos --target-dir ./build-mveos
+--add-repo=https://packages.microsoft.com/yumrepos/vscode,rpm-md,vs-code,8,true,true,{https://packages.microsoft.com/keys/microsoft.asc},,,true
+--add-package=code
+--add-repo=https://packages.microsoft.com/yumrepos/ms-teams,rpm-md,ms-teams,9,true,true,{https://packages.microsoft.com/keys/microsoft.asc},,,true
+--add-package=teams
