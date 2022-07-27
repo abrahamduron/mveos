@@ -3,3 +3,30 @@ kiwi-ng system build --description ./mveos --target-dir ./build-mveos
 --add-package=code
 --add-repo=https://packages.microsoft.com/yumrepos/ms-teams,rpm-md,ms-teams,9,true,true,{https://packages.microsoft.com/keys/microsoft.asc},,,true
 --add-package=teams
+
+
+PARA CREAR USB PERSISTENTE USANDO VENTOY
+
+    fdisk -l
+
+Disco /dev/sdc: 57,8 GiB, 62058921984 bytes, 121208832 sectores
+Modelo de disco: USB 3.1 FD
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+Tipo de etiqueta de disco: dos
+Identificador del disco: 0x9d945c45
+
+instalar ventoy
+sh Ventoy2Disk.sh
+
+
+ventoy.json
+{
+"persistence": [
+{
+"image": "/G1SO2UNAHmveos.iso",
+"backend": "/persistence.dat"
+}
+]
+}
