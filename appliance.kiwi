@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <image schemaversion="6.8" name="MaverickEnvironmetWeb-OS_G1SO2">
+    
     <description type="system">
-        <author> CUSTOMIZER - G1-SO2-IS-UNAH - Abraham Duron 20131001422 - Luis Lainez 20191002134 - Alex Espinoza 20181006353</author>
+        <author> CUSTOMIZER - G1-SO2-IS-UNAH - Abraham Duron 20131001422 - Luis Lainez 20191002134 - Alex Espinoza 20181006353- Victor Vasquez 20201005163/author>
         <contact>abraham.duron@unah.hn</contact>
         <specification>
-            MaverickOS es una distro personalizada para desarollo web con tools de pentesting y uso de Docke basada en openSUSE Leap 15.4 Appliance.
+            MaverickOS es una distro personalizada para desarollo web con tools de pentesting y uso de Docker basada en openSUSE Leap 15.4 Appliance.
         </specification>
     </description>
+        
     <preferences>
         <version>1.4.0</version>
         <packagemanager>zypper</packagemanager>
@@ -22,6 +24,7 @@
             <bootloader name="grub2" console="serial" timeout="10"/>
         </type>
     </preferences>
+        
     <users>
          <user
             password="MaverickOS"
@@ -33,39 +36,32 @@
             home="/root" name="root" groups="root"
         />
     </users>
+        
     <repository type="rpm-md" alias="kiwi" priority="1">
         <source path="obs://Virtualization:Appliances:Builder/openSUSE_Leap_15.4"/>
     </repository>
     <repository type="rpm-md" alias="Leap_15_4" imageinclude="true">
         <source path="obs://openSUSE:Leap:15.4/standard"/>
     </repository>
-    <repository type="rpm-md" alias="repo-update" imageinclude="true" priority="1">
+    <repository type="rpm-md" alias="repo-update" imageinclude="true" priority="2">
         <source path="https://download.opensuse.org/update/leap/15.4/oss"/>
     </repository>
-    <repository type="rpm-md" alias="repo-update-non-oss" imageinclude="true" priority="2">
+    <repository type="rpm-md" alias="repo-update-non-oss" imageinclude="true" priority="3">
         <source path="https://download.opensuse.org/update/leap/15.4/non-oss"/>
     </repository>
-    <repository type="rpm-md" alias="repo-oss" imageinclude="true" priority="3">
+    <repository type="rpm-md" alias="repo-oss" imageinclude="true" priority="4">
         <source path="https://download.opensuse.org/distribution/leap/15.4/repo/oss"/>
     </repository>
-    <repository type="rpm-md" alias="repo-non-oss" imageinclude="true" priority="4">
+    <repository type="rpm-md" alias="repo-non-oss" imageinclude="true" priority="5">
         <source path="https://download.opensuse.org/distribution/leap/15.4/repo/non-oss"/>
     </repository>
-    <repository type="rpm-md" alias="download.nvidia.com-leap" imageinclude="true" priority="5">
+    <repository type="rpm-md" alias="download.nvidia.com-leap" imageinclude="true" priority="6">
         <source path="https://download.nvidia.com/opensuse/leap/15.4/"/>
     </repository>
-    <repository type="rpm-md" alias="snappy" imageinclude="true" priority="6">
+    <repository type="rpm-md" alias="snappy" imageinclude="true" priority="7">
         <source path="https://download.opensuse.org/repositories/system:/snappy/openSUSE_Leap_15.4"/>
     </repository>
-    
-    <!--repository type="rpm-md" alias="google" imageinclude="true">
-        <source path="http://dl.google.com/linux/chrome/rpm/stable/x86_64"/>
-    </repository>
-    
-    <repository type="rpm-md" alias="MS-teams" imageinclude="true">
-        <source path="https://packages.microsoft.com/yumrepos/ms-teams"/>
-    </repository-->
-    
+      
     <packages type="image" patternType="plusRecommended">
         <package name="checkmedia"/>
         <package name="cryptsetup"/>
