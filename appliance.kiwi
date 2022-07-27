@@ -9,7 +9,7 @@
         </specification>
     </description>
     <preferences>
-        <version>1.2.0</version>
+        <version>1.4.0</version>
         <packagemanager>zypper</packagemanager>
         <locale>es_ES</locale>
         <keytable>es</keytable>
