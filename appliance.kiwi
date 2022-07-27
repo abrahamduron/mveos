@@ -25,7 +25,7 @@
     <users>
          <user
             password="MaverickOS"
-            home="/home/me" name="me"
+            home="/home/mveos" name="mveos"
             groups="users" pwdformat="plain"
         />
         <user
