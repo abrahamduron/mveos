@@ -23,7 +23,15 @@
         </type>
     </preferences>
     <users>
-        <user password="1234" home="/root" name="root" groups="root"/>
+         <user
+            password="MaverickOS"
+            home="/home/me" name="me"
+            groups="users" pwdformat="plain"
+        />
+        <user
+            password="$1$grupo1so$9dt/i2mhuaHlSv/Mz20QH1"
+            home="/root" name="root" groups="root"
+        />
     </users>
     <repository type="rpm-md" alias="kiwi" priority="1">
         <source path="obs://Virtualization:Appliances:Builder/openSUSE_Leap_15.4"/>
