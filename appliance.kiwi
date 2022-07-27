@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<image schemaversion="6.8" name="MaverickEnvironmetWeb-OS">
+<image schemaversion="6.8" name="MaverickEnvironmetWeb-OS_G1SO2">
     <description type="system">
-        <author> CURTOMIZER - G1-SO2-IS-UNAH - Abraham Duron 20131001422 - Luis Lainez 20191002134 - Alex Espinoza 20181006353</author>
+        <author> CUSTOMIZER - G1-SO2-IS-UNAH - Abraham Duron 20131001422 - Luis Lainez 20191002134 - Alex Espinoza 20181006353</author>
         <contact>abraham.duron@unah.hn</contact>
         <specification>
             MaverickOS es una distro personalizada para desarollo web con tools de pentesting y uso de Docke basada en openSUSE Leap 15.4 Appliance.
@@ -147,10 +147,7 @@
         <package name="xf86-video-nv"/>
         <package name="xf86-video-r128"/>
         <package name="xf86-video-intel"/>
-<!--         <package name="code"/> -->
-        <!--package name="google-chrome-stable"/>
-        <package name="docker"/>  
-        <package name="teams"/--> 
+        <package name="docker"/> 
         <namedCollection name="apparmor"/>
         <namedCollection name="base"/>
         <namedCollection name="basesystem"/>
