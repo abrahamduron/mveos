@@ -2,7 +2,7 @@
 
 <image schemaversion="6.8" name="G1SO2UNAH-MaverickEnvironmetWeb-OS">
     <description type="system">
-        <author> CUSTOMIZER - G1-SO2-IS-UNAH - Abraham Duron 20131001422 - Luis Lainez 20191002134 - Alex Espinoza 20181006353</author>
+        <author> CUSTOMIZER - G1-SO2-IS-UNAH - Abraham Duron 20131001422 - Luis Lainez 20191002134 - Alex Espinoza 20181006353 - Victor Vasquez 20201005163</author>
         <contact>abraham.duron@unah.hn</contact>
         <specification>
             MaverickOS es una distro personalizada para desarollo web con tools de pentesting y uso de Docke basada en openSUSE Leap 15.4 Appliance.
@@ -26,7 +26,7 @@
         <bootloader-theme>openSUSE</bootloader-theme>
     </preferences>
     <preferences profiles="DracutLive">
-        <type image="iso" primary="true" flags="overlay" firmware="efi"  hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="false"/>
+        <type image="iso" primary="true" flags="dmsquash" hybrid="true" firmware="efi"  hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="false"/>
     </preferences>
     <preferences profiles="Live">
         <type image="iso" primary="true" flags="overlay" hybrid="true" firmware="efi" kernelcmdline="splash" hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="true"/>
@@ -40,7 +40,7 @@
         </type>
     </preferences>
     <preferences profiles="Disk">
-        <type image="oem" filesystem="ext4" firmware="efi" kernelcmdline="rd.kiwi.oem.maxdisk=1100G" installboot="install" initrd_system="dracut" installiso="true" bootloader="grub2" format="vmdk">
+        <type image="oem" filesystem="ext4" format="vhd" initrd_system="dracut" installiso="true" bootloader="grub2" kernelcmdline="splash" firmware="efi">
             <oemconfig>
                 <oem-systemsize>8192</oem-systemsize>
                 <oem-swap>true</oem-swap>
@@ -54,7 +54,7 @@
     <users>
         <user
             password="MaverickOS"
-            home="/home/me" name="me"
+            home="/home/mveos" name="mveos"
             groups="users" pwdformat="plain"
         />
         <user
@@ -161,9 +161,6 @@
         <package name="perl-Net-IP"/>
         <package name="perl-Net-IPv4Addr"/>
         <package name="snapd"/>
-        <package name="virtualbox-kmp-default"/>
-        <package name="virtualbox-guest-tools"/>
-        <package name="virtualbox-guest-x11"/>
         <package name="sane-backends"/>
         <package name="xf86-video-amdgpu"/>
         <package name="xf86-video-ati"/>
