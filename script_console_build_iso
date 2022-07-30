@@ -1,32 +1,48 @@
+Con kiwi para leap 15.4
+
+HACK OFICIAL DE DISTRO
+openssl passwd -1 -salt 'grupo1soiiunah', Maverick
+$1$grupo1so$9dt/i2mhuaHlSv/Mz20QH1
+
+PARA CONSTRUIR
+
+kiwi-ng [--type=<build_type>] system build --description [--temp-dir=<directory>] --target-dir
+
 kiwi-ng system build --description ./mveos --target-dir ./build-mveos
+
+kiwi-ng --type oem system build --description ./mveos --target-dir ./build-mveos
+
+kiwi-ng --profile Live system build --description ./mveos --target-dir ./build-mveos
+    
+EJEMPLO COMPLETO: 
+kiwi-ng --profile Live system build --description ./mveos --target-dir ./build-mveos
 --add-repo=https://packages.microsoft.com/yumrepos/vscode,rpm-md,vs-code,8,true,true,{https://packages.microsoft.com/keys/microsoft.asc},,,true
 --add-package=code
 --add-repo=https://packages.microsoft.com/yumrepos/ms-teams,rpm-md,ms-teams,9,true,true,{https://packages.microsoft.com/keys/microsoft.asc},,,true
 --add-package=teams
 
 
-PARA CREAR USB PERSISTENTE USANDO VENTOY
+COMANDOS PARA QUEMAR ISO EN USB
 
-    fdisk -l
+primero ubicarse donde esta la iso y desde ahi hacer lo siguiente
 
-Disco /dev/sdc: 57,8 GiB, 62058921984 bytes, 121208832 sectores
-Modelo de disco: USB 3.1 FD
-Unidades: sectores de 1 * 512 = 512 bytes
-Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
-Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
-Tipo de etiqueta de disco: dos
-Identificador del disco: 0x9d945c45
+En modo root
 
-instalar ventoy
-sh Ventoy2Disk.sh
+lsblk -l
+BUSCAR LA UNIDAD USB /DEV/SDX
+
+y ahora sí, colocamos el comando para quemar la iso en la usb
+
+dd if=./nombre.iso of=/dev/sdx LA VAR x es el identificador fijo de la unidad, la cual previamente encontraron.
+
+EJEMPLO:
+dd if ./G1SO2UNAH-MaverickEnvironmetWeb-OS.x86_64-1.3.0.iso of=/dev/sdc
+
+Esperan a que finalice y recibiran el mensaje de confirmación de lectura y escritura de bloques.
+
+Ya con eso, solo inician o arranca desde la USB y realizan la prueba.
+
+NOTA: Es necesario mediante la ISO crear usb booteables con herramientas conocidas como Ventoy, Rufus, BalenaEtcher, ect  
+para verificar compatibilidad y que la ISO funciona correctamente. 
 
 
-ventoy.json
-{
-"persistence": [
-{
-"image": "/G1SO2UNAHmveos.iso",
-"backend": "/persistence.dat"
-}
-]
-}
