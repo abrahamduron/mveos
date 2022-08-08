@@ -15,7 +15,7 @@
         <profile name="Disk" description="Expandable Disk image"/>
     </profiles>
     <preferences>
-        <version>1.4.0</version>
+        <version>1.5.0</version>
         <packagemanager>zypper</packagemanager>
         <locale>es_ES</locale>
         <keytable>es</keytable>
@@ -32,15 +32,16 @@
         <type image="iso" primary="true" flags="overlay" hybrid="true" firmware="efi" kernelcmdline="splash" hybridpersistent_filesystem="ext4" hybridpersistent="true" mediacheck="true"/>
     </preferences>
     <preferences profiles="Virtual">
-        <type image="vmx" filesystem="xfs" bootloader="grub2" kernelcmdline="splash" firmware="uefi" bootpartition="true" bootfilesystem="ext4" format="vmdk">
+        <type image="vmx" filesystem="xfs" bootloader="grub2" kernelcmdline="splash" firmware="uefi" bootpartition="true" bootfilesystem="ext4">
             <machine memory="6144" guestOS="suse" HWversion="4">
                 <vmdisk id="0" controller="ide"/>
                 <vmnic driver="e1000" interface="0" mode="bridged"/>
             </machine>
         </type>
     </preferences>
+
     <preferences profiles="Disk">
-        <type image="oem" filesystem="ext4" format="vhd" initrd_system="dracut" installiso="true" bootloader="grub2" kernelcmdline="splash" firmware="efi">
+        <type image="oem" filesystem="ext4" format="vmdk" initrd_system="dracut" installiso="true" bootloader="grub2" kernelcmdline="splash" firmware="efi">
             <oemconfig>
                 <oem-systemsize>8192</oem-systemsize>
                 <oem-swap>true</oem-swap>
@@ -70,7 +71,6 @@
     <repository type="rpm-md" alias="Leap_15_4" imageinclude="true">
         <source path="obs://openSUSE:Leap:15.4/standard"/>
     </repository>
-
     <repository type="rpm-md" alias="repo-update" imageinclude="true" priority="2">
         <source path="https://download.opensuse.org/update/leap/15.4/oss"/>
     </repository>
@@ -119,7 +119,7 @@
         <package name="shim"/>
         <package name="kernel-default"/>
         <package name="timezone"/>
-        <package name="xz" />
+        <package name="xz"/>
         <package name="wicked"/>
         <package name="ntp"/>
         <package name="man-pages"/>
@@ -169,6 +169,8 @@
         <package name="xf86-video-r128"/>
         <package name="xf86-video-intel"/>
         <package name="docker"/>
+        <archive name="ideaIC.tar.gz"/>
+        <archive name="ZAP_2.11.1_Linux.tar.gz"/>
         <namedCollection name="apparmor"/>
         <namedCollection name="base"/>
         <namedCollection name="basesystem"/>
@@ -194,6 +196,8 @@
         <namedCollection name="x11_yast"/>
         <namedCollection name="yast2_basis"/>
     </packages>
+
+
     
     <packages type="delete">
         <package name="discover"/>
