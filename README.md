@@ -1,5 +1,5 @@
 # mveos
-Imagen base para la construcción del custom Linux MVEOS basdo en OpenSuse Leap 15.4.  El sistema operativo personalizado esta enfocado al desarrollo web, la ISO generado es para usar en dispositivos usb para su portabilidad. Entre sus recursos de sofware tiene un servidor web local, Docker, herramientas de pentesting entre otros.  
+Imagen base para la construcción del custom Linux MVEOS basado en OpenSuse Leap 15.4.  El sistema operativo personalizado esta enfocado al desarrollo web, la ISO generada es para usar en dispositivos usb para su portabilidad. Entre sus recursos de sofware tiene un servidor web local, Docker, herramientas de pentesting entre otros.  
 
 La construcción de la distro se realizo mediante kiwi-NG usando los servicios OBS de OpenSuse. 
 
