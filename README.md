@@ -47,7 +47,7 @@ abraham.duron@unah.hn
 ALEX LAINEZ lglainez@unah.hn
 VICTOR VASQUEZ victrex1234@gmail.com 
 
-Reconocimiento especial: Ing. Constantino Sorto, de la facultad de ingeniería, carrera de ingeniería en sistemas de la UNAH.
+Reconocimiento especial al docente: Ing. Constantino Sorto, de la facultad de ingeniería, carrera de ingeniería en sistemas de la UNAH.
 
 
 
