@@ -1,7 +1,8 @@
 # mveos
 Imagen base para la construcción del custom Linux MVEOS basado en OpenSuse Leap 15.4.  El sistema operativo personalizado esta enfocado al desarrollo web, la ISO generada es para usar en dispositivos usb para su portabilidad. Entre sus recursos de sofware tiene un servidor web local, Docker, herramientas de pentesting entre otros.  
 
-La construcción de la distro se realizo mediante kiwi-NG usando los servicios OBS de OpenSuse. 
+La construcción de la distro se realizo mediante kiwi-NG usando los servicios OBS de OpenSuse. La base utilizada es OpenSuse Leap 15.4 por lo cual, los requisitos minimos son los mismo que requiere la distribucción oficial. Recomendamos tener arriba de 2GB de Ram, Procesador con frecuencia igual o mayor a 2.4Ghz. Para más detalle según la arquitectura de su equipo puede ver la siguiente wiki oficial:  
+https://en.opensuse.org/Hardware_requirements_15.4
 
 APLICACIONES INSTALADAS 
 • Servidor web XAMPP
@@ -44,7 +45,7 @@ EQUIPO DE DESARROLLO:
 ALEX ESPINOZA aespinozap@unah.hn
 ABRAHAM DURON
 abraham.duron@unah.hn
-ALEX LAINEZ lglainez@unah.hn
+LUIS LAINEZ lglainez@unah.hn
 VICTOR VASQUEZ victrex1234@gmail.com 
 
 Reconocimiento especial al docente: Ing. Constantino Sorto, de la facultad de ingeniería, carrera de ingeniería en sistemas de la UNAH.
